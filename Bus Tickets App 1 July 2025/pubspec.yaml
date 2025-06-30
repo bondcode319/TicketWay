@@ -1,0 +1,33 @@
+name: bus_ticketing_app
+description: A bus ticketing application
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_riverpod: ^2.4.9
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.15.3
+  flutter_local_notifications: ^15.1.0+1
+  cloud_firestore: ^4.17.5
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.7
+  freezed: ^2.4.5
+  json_serializable: ^6.7.1
+  mockito: ^5.4.2
+  analyzer: ^5.13.0
+
+flutter:
+  uses-material-design: true

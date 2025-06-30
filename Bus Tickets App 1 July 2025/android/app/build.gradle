@@ -1,0 +1,58 @@
+plugins {
+    id("com.android.application")
+    id("kotlin-android")
+    id("com.google.gms.google-services")
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id("dev.flutter.flutter-gradle-plugin")
+}
+
+android {
+    namespace = "com.example.bus_ticketing_app"
+    compileSdk = 34
+    
+    defaultConfig {
+        applicationId = "com.example.bus_ticketing_app"
+        minSdk = 21
+        ndkVersion = "29.0.13113456"
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+        minSdkVersion = 21
+        multiDexEnabled = true
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+    
+    buildTypes {
+        release {
+            minifyEnabled = false
+            shrinkResources = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+    
+    compileOptions {
+        coreLibraryDesugaringEnabled = true  // This is what you were missing!
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    // Update to the latest version
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
+   
+    // Your other dependencies...
+    implementation(platform("com.google.firebase:firebase-bom:32.7.1"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("androidx.multidex:multidex:2.0.1")
+}
